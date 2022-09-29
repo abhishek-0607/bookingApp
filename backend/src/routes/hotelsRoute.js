@@ -8,8 +8,6 @@ const {
   getHotels,
 } = require("../controllers/hotelsController");
 
-const createError = require("../utils/error");
-
 //CREATE
 router.post("/", createHotel);
 //UPDATE

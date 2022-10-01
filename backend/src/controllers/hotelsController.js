@@ -34,7 +34,7 @@ const deleteHotel = async (req, res) => {
   }
 };
 
-const gethotel = async (req, res, next) => {
+const getHotel = async (req, res, next) => {
   try {
     const hotel = await Hotel.findById(req.params.id);
     res.status(200).json(hotel);
@@ -52,4 +52,4 @@ const getHotels = async (req, res, next) => {
     next(e);
   }
 };
-module.exports = { createHotel, updateHotel, deleteHotel, gethotel, getHotels };
+module.exports = { createHotel, updateHotel, deleteHotel, getHotel, getHotels };

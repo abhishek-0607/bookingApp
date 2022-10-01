@@ -7,25 +7,32 @@ const {
   getUser,
   getUsers,
 } = require("../controllers/UsersController");
-const verifyToken = require("../utils/verifyToken");
+const {
+  verifyToken,
+  verifyUser,
+  verifyAdmin,
+} = require("../utils/verifyToken");
 
-router.get("/check", verifyToken, (req, res, next) => {
-  res.send("hello user,you are logged in");
-});
-
-//CREATE
-router.post("/", createUser);
+// router.get("/checkauthentication", verifyToken, (req, res, next) => {
+//   res.send("hello User, you are logged in");
+// });
+// router.get("/checkuser/:id", verifyUser, (req, res, next) => {
+//   res.send("hello User, you are logged in and you can delete your account");
+// });
+// router.get("/checkadmin/:id", verifyAdmin, (req, res, next) => {
+//   res.send("hello Admin, you are logged in and you can delete all accounts");
+// });
 
 //UPDATE
-router.put("/:id", updateUser);
+router.put("/:id", verifyUser, updateUser);
 
 //DELETE
-router.delete("/:id", deleteUser);
+router.delete("/:id", verifyUser, deleteUser);
 
 //GET
-router.get("/:id", getUser);
+router.get("/:id", verifyUser, getUser);
 
 //GET ALL
-router.get("/", getUsers);
+router.get("/", verifyAdmin, getUsers);
 
 module.exports = router;

@@ -34,9 +34,20 @@ const updateRoom = async (req, res) => {
     res.status(500).json({ status: "failed", message: e.message });
   }
 };
-const deleteRoom = async (req, res) => {
+const deleteRoom = async (req, res, next) => {
+  const hotelId = req.params.hotelid;
+
   try {
     await Room.findByIdAndDelete(req.params.id);
+
+    try {
+      await Hotel.findByIdAndUpdate(hotelId, {
+        $pull: { rooms: req.params.id },
+      });
+    } catch (e) {
+      next(e);
+    }
+
     res.status(200).json("Room hase been deleted");
   } catch (e) {
     res.status(500).json({ status: "failed", message: e.message });

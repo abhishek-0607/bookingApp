@@ -7,12 +7,12 @@ export const Featured = () => {
       <div className="featured-item">
         <img
           className="featured-img"
-          src="https://t-cf.bstatic.com/xdata/images/city/square250/684765.webp?k=3f7d20034c13ac7686520ac1ccf1621337a1e59860abfd9cbd96f8d66b4fc138&o="
+          src="https://cdn.britannica.com/13/146313-050-DD9AAC27/India-War-Memorial-arch-New-Delhi-Sir.jpg"
           alt="featuredImg"
         />
         <div className="featured-titles">
-          <h1>Delhi</h1>
-          <h1>123 properties</h1>
+          <h1 className="margin0">Delhi</h1>
+          <h2 className="margin0">123 properties</h2>
         </div>
       </div>
       <div className="featured-item">
@@ -22,8 +22,8 @@ export const Featured = () => {
           alt="featuredImg"
         />
         <div className="featured-titles">
-          <h1>Goa</h1>
-          <h1>789 properties</h1>
+          <h1 className="margin0">Goa</h1>
+          <h2 className="margin0">123 properties</h2>
         </div>
       </div>
       <div className="featured-item">
@@ -33,8 +33,8 @@ export const Featured = () => {
           alt=""
         />
         <div className="featured-titles">
-          <h1>Mumbai</h1>
-          <h1>345 properties</h1>
+          <h1 className="margin0">Mumbai</h1>
+          <h2 className="margin0">123 properties</h2>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@
 }
 .featured-item {
   position: relative;
+  flex: 1;
   color: white;
   border-radius: 10px;
   overflow: hidden;
@@ -18,7 +19,11 @@
   object-fit: cover;
 }
 .featured-titles {
+  /* border: 1px solid red; */
   position: absolute;
   bottom: 20px;
   left: 20px;
+}
+.margin0 {
+  margin: 0;
 }

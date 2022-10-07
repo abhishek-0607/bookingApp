@@ -13,8 +13,10 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 export const Header = ({ type }) => {
+  const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -31,6 +33,8 @@ export const Header = ({ type }) => {
     room: 1,
   });
 
+  const navigate = useNavigate();
+
   const handleOption = (name, operation) => {
     setoptions((prev) => {
       return {
@@ -38,6 +42,10 @@ export const Header = ({ type }) => {
         [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
       };
     });
+  };
+
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, date, options } });
   };
   return (
     <div className="header">
@@ -83,6 +91,7 @@ export const Header = ({ type }) => {
                   className="header-search-input"
                   type="text"
                   placeholder="Where are you going?"
+                  onChange={(e) => setDestination(e.target.value)}
                 />
               </div>
               <div className="header-search-item">
@@ -106,6 +115,7 @@ export const Header = ({ type }) => {
                     onChange={(item) => setDate([item.selection])}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
+                    minDate={new Date()}
                     className="date"
                   />
                 )}
@@ -190,7 +200,9 @@ export const Header = ({ type }) => {
                 )}
               </div>
               <div className="header-search-item">
-                <button className="header-btn">Search</button>
+                <button className="header-btn" onClick={handleSearch}>
+                  Search
+                </button>
               </div>
             </div>
           </>

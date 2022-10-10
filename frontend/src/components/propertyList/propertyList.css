@@ -20,6 +20,7 @@
 .p-list-titles > h1 {
   font-size: 18px;
   margin: 0;
+  text-transform: capitalize;
 }
 .p-list-titles > h2 {
   font-size: 14px;

@@ -15,6 +15,7 @@ import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/searchContext";
+import { AuthContext } from "../../context/authContext";
 
 export const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -33,6 +34,8 @@ export const Header = ({ type }) => {
     children: 0,
     room: 1,
   });
+
+  const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -87,7 +90,9 @@ export const Header = ({ type }) => {
               Get rewarded for your travels - unlock instant savings of 10% or
               more with a free Booking account
             </p>
-            <button className="header-btn">Sign in / Register</button>
+            {!user && (
+              <button className="header-btn">Sign in / Register</button>
+            )}
             <div className="header-search">
               <div className="header-search-item">
                 <FontAwesomeIcon icon={faBed} className="header-icon" />

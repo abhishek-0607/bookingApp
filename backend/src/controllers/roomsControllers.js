@@ -34,6 +34,22 @@ const updateRoom = async (req, res) => {
     res.status(500).json({ status: "failed", message: e.message });
   }
 };
+const updateRoomAvailability = async (req, res) => {
+  try {
+    await Room.updateOne(
+      { "roomNumbers._id": req.params.id },
+      {
+        $push: {
+          "roomNumbers.$.unavailableDates": req.body.dates,
+        },
+      }
+    );
+    res.status(200).json("Room has been updated!");
+  } catch (e) {
+    res.status(500).json({ status: "failed", message: e.message });
+  }
+};
+
 const deleteRoom = async (req, res, next) => {
   const hotelId = req.params.hotelid;
 
@@ -72,4 +88,11 @@ const getRooms = async (req, res, next) => {
     next(e);
   }
 };
-module.exports = { createRoom, updateRoom, deleteRoom, getRoom, getRooms };
+module.exports = {
+  createRoom,
+  updateRoom,
+  deleteRoom,
+  getRoom,
+  getRooms,
+  updateRoomAvailability,
+};

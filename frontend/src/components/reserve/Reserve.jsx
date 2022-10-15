@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import { SearchContext } from "../../context/searchContext";
 import useFetch from "../../hooks/useFetch";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
@@ -39,8 +41,21 @@ export const Reserve = ({ setOpen, hotelId }) => {
         : selectedRooms.filter((item) => item !== value)
     );
   };
-
-  const handleClick = async () => {};
+  const navigate = useNavigate();
+  const handleClick = async () => {
+    try {
+      await Promise.all(
+        selectedRooms.map((roomId) => {
+          const res = axios.put(`/rooms/availability/${roomId}`, {
+            dates: allDates,
+          });
+          return res.data;
+        })
+      );
+      setOpen(false);
+      navigate("/");
+    } catch (e) {}
+  };
   console.log(selectedRooms);
   return (
     <div className="reserve">

@@ -14,10 +14,11 @@ const app = express();
 //   console.log("I'm middleware");
 //   next();
 // });
-app.use(bodyparser.json());
-app.use(cors());
+
 app.use(cookieParser());
 app.use(express.json());
+app.use(bodyparser.json());
+app.use(cors());
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);

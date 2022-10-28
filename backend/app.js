@@ -6,6 +6,7 @@ const roomsRoute = require("./src/routes/roomsRoute");
 const usersRoute = require("./src/routes/usersRoute");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const bodyparser = require("body-parser");
 const app = express();
 
 //middlewares
@@ -13,6 +14,7 @@ const app = express();
 //   console.log("I'm middleware");
 //   next();
 // });
+app.use(bodyparser.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());

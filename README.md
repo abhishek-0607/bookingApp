@@ -46,7 +46,7 @@ Our project is a clone of a www.booking.com, where we can get get hotels to stay
 All the resources which are used in the project either we fetch those from main website or we take from google. All the resources are belongs to their respective owners. I don't have anykind of ownership over any resources. All images are taken from booking.com, google images, unsplash.com or pexels.com are only for educational and learning puropose. All icons and fonts taken from open sources from google search. We have no copyrights over images, icons or fonts.
 
 
-## Some Screeshots of our Project :-
+## Some Screeshots of my Project :-
 
 ### * Home Page 
 ![Home Page](https://github.com/abhishek-0607/bookingApp/blob/master/frontend/public/landingpage.png)

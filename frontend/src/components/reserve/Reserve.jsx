@@ -58,6 +58,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
       );
       setOpen(false);
       navigate("/");
+      alert("Your selected room is booked Successfully!!!");
     } catch (e) {}
   };
   console.log(selectedRooms);

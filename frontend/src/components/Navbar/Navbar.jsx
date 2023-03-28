@@ -13,7 +13,10 @@ export const Navbar = () => {
           <span className="logo">Booking.com</span>
         </Link>
         {user ? (
-          user.username
+          <div>
+            <span>{user.username}</span>
+            <button className="nav-button">Logout</button>
+          </div>
         ) : (
           <div className="nav-item">
             <button className="nav-button">Register</button>

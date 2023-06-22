@@ -4,8 +4,9 @@ const url = process.env.URL;
 
 const connect = async () => {
   try {
-    await mongoose.connect(url);
-    console.log("Connected to mongoDB");
+    mongoose.connect(url, () => {
+      console.log("Connected to mongoDB");
+    });
   } catch (e) {
     throw e;
   }

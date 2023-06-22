@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 const useFetch = (url) => {
+  url = "https://booking-app-backend-9d1a.onrender.com/api" + url;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

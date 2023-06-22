@@ -17,7 +17,7 @@ const app = express();
 // });
 
 const corsOptions = {
-  origin: "http://localhost:3000", // frontend URI (ReactJS)
+  origin: "https://booking-app-9lsz.onrender.com", // frontend URI (ReactJS)
 };
 
 app.use(cookieParser());
@@ -41,9 +41,5 @@ app.use((err, req, res, next) => {
     stack: err.stack,
   });
 });
-
-if ((process.env.NODE_ENV = "production")) {
-  app.use(express.static("frontend/build"));
-}
 
 module.exports = app;

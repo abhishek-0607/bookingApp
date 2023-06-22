@@ -7,6 +7,7 @@ const usersRoute = require("./src/routes/usersRoute");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const bodyparser = require("body-parser");
+require("dotenv").config();
 const app = express();
 
 //middlewares
@@ -15,10 +16,14 @@ const app = express();
 //   next();
 // });
 
+const corsOptions = {
+  origin: "http://localhost:3000", // frontend URI (ReactJS)
+};
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(bodyparser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);

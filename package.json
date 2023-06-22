@@ -1,0 +1,24 @@
+{
+  "name": "bookingapp",
+  "version": "1.0.0",
+  "description": "bookingApp is project of cloning booking.com website. Booking.com seamlessly connects millions of travelers to memorable experiences, a variety of transportation options, and incredible places to stay – from homes to hotels, and much more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-server": "cd backend && npm install",
+    "start-server": "cd backend && node server.js",
+    "install-client": "cd frontend && npm install",
+    "build-client": "cd frontend && npm run build",
+    "start-client": "cd frontend && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishek-0607/bookingApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhishek-0607/bookingApp/issues"
+  },
+  "homepage": "https://github.com/abhishek-0607/bookingApp#readme"
+}

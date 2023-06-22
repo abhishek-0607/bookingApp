@@ -16,14 +16,14 @@ const app = express();
 //   next();
 // });
 
-const corsOptions = {
-  origin: "https://booking-app-9lsz.onrender.com", // frontend URI (ReactJS)
-};
+// const corsOptions = {
+//   origin: "https://booking-app-9lsz.onrender.com", // frontend URI (ReactJS)
+// };
 
 app.use(cookieParser());
 app.use(express.json());
 app.use(bodyparser.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);

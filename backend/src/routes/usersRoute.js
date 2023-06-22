@@ -6,7 +6,7 @@ const {
   deleteUser,
   getUser,
   getUsers,
-} = require("../controllers/UsersController");
+} = require("../controllers/usersController");
 const {
   verifyToken,
   verifyUser,
